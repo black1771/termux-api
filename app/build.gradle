@@ -8,6 +8,7 @@ android {
     def apkVersionTag = System.getenv("TERMUX_API_APP__BUILD__APK_VERSION_TAG") ?: ""
 
     defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         applicationId "com.termux.api"
         minSdk project.properties.minSdkVersion.toInteger()
         targetSdk project.properties.targetSdkVersion.toInteger()
@@ -66,6 +67,8 @@ android {
 }
 
 dependencies {
+    androidTestImplementation "androidx.test.ext:junit:1.2.1"
+    androidTestImplementation "androidx.test:runner:1.6.2"
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
 
     implementation "com.google.android.material:material:1.12.0"
